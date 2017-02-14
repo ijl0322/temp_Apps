@@ -8,11 +8,12 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, UISearchBarDelegate {
 
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
 
+    @IBOutlet weak var searchBar: UISearchBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,11 @@ class MasterViewController: UITableViewController {
         }
     }
 
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        let keyword = searchBar.text
+        print("Duck Duck Go\(keyword)")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.clearsSelectionOnViewWillAppear = self.splitViewController!.isCollapsed
         super.viewWillAppear(animated)
