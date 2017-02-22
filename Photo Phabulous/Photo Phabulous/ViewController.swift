@@ -15,6 +15,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     var imageArray = [UIImage(named: "img1"), UIImage(named: "img2"), UIImage(named: "img3"), UIImage(named: "img4"), UIImage(named: "img5")]
     
+    var imageCount = 0
+    
+    var newImage: UIImage?
+    
     @IBOutlet weak var collectionView: UICollectionView!
 
     @IBOutlet weak var image: UIImageView!
@@ -27,16 +31,21 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        imageCount = imageArray.count
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
         collectionView.dataSource = self
         collectionView.delegate = self
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
-            image.image = pickedImage
+            newImage = pickedImage
+            image.image = newImage
+            addImage()
+            
         } else {
             print("Error adding image")
         }
@@ -69,6 +78,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.present(alert, animated: true, completion: nil)
     }
     
+    func addImage(){
+        imageArray.append(newImage)
+        let index = imageArray.index(where : {$0 == newImage})
+        let indexPath = IndexPath(item: index!, section: 0)
+        self.collectionView.performBatchUpdates({Void in
+            self.collectionView.insertItems(at: [indexPath])
+            self.imageCount += 1
+        }, completion: nil)
+    }
 }
 
 
