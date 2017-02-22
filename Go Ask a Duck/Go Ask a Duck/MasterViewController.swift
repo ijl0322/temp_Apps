@@ -29,8 +29,10 @@ class MasterViewController: UITableViewController, UISearchBarDelegate {
     }
 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        let keyword = searchBar.text
-        print("Duck Duck Go\(keyword)")
+        if let keyword = searchBar.text {
+            let searchURL = "http://api.duckduckgo.com/?q=\(keyword)&format=json&pretty=1"
+            print("Duck Duck Go\(searchURL)")
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
