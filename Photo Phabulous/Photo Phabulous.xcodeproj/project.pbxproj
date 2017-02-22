@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0E1329BB1E5E136A003CD09B /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1329BA1E5E136A003CD09B /* ImageViewController.swift */; };
+		0E1329BE1E5E214E003CD09B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E1329BD1E5E214E003CD09B /* Social.framework */; };
 		0E3325A71E5BCC1B00CA81E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3325A61E5BCC1B00CA81E0 /* AppDelegate.swift */; };
 		0E3325A91E5BCC1B00CA81E0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3325A81E5BCC1B00CA81E0 /* ViewController.swift */; };
 		0E3325AC1E5BCC1B00CA81E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E3325AA1E5BCC1B00CA81E0 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		0E1329BA1E5E136A003CD09B /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		0E1329BD1E5E214E003CD09B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		0E3325A31E5BCC1B00CA81E0 /* Photo Phabulous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photo Phabulous.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E3325A61E5BCC1B00CA81E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E3325A81E5BCC1B00CA81E0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,17 +35,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E1329BE1E5E214E003CD09B /* Social.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E1329BC1E5E214E003CD09B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0E1329BD1E5E214E003CD09B /* Social.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0E33259A1E5BCC1A00CA81E0 = {
 			isa = PBXGroup;
 			children = (
 				0E3325A51E5BCC1B00CA81E0 /* Photo Phabulous */,
 				0E3325A41E5BCC1B00CA81E0 /* Products */,
+				0E1329BC1E5E214E003CD09B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

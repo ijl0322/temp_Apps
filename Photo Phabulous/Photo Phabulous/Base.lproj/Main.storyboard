@@ -81,6 +81,15 @@
                             <constraint firstItem="onu-fu-aDv" firstAttribute="width" secondItem="2AE-Xu-snx" secondAttribute="width" id="xbh-Yf-FJC"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="77s-iK-1pg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="0bo-2Q-fZZ">
+                            <connections>
+                                <action selector="shareButton:" destination="UUX-IU-TiB" id="SaS-JH-h4r"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="onu-fu-aDv" id="Ogv-wf-6ZH"/>
                     </connections>
