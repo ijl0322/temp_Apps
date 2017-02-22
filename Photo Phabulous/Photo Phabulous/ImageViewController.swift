@@ -9,7 +9,8 @@
 // - Attribution: https://www.youtube.com/watch?v=a89c67TIh10
 // - Attribution: https://www.youtube.com/watch?v=dfy7tu5m-p8
 // - Attribution: https://www.youtube.com/watch?v=a89c67TIh10
-
+// - Attribution: http://www.appcoda.com/social-framework-introduction/
+// - Attribution: https://www.youtube.com/watch?v=BIgqHLTZ_a4  Caching images using NSCache
 
 import UIKit
 import Social
