@@ -19,15 +19,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     var newImage: UIImage?
     
+    var selectedImage: UIImage?
+    
     @IBOutlet weak var collectionView: UICollectionView!
-
-    @IBOutlet weak var image: UIImageView!
     
     // MARK: Properties
-    @IBAction func camera(_ sender: UIButton) {
+
+    @IBAction func camera(_ sender: UIBarButtonItem) {
         launchPhotoPicker()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,7 +44,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
             newImage = pickedImage
-            image.image = newImage
             addImage()
             
         } else {
@@ -87,6 +87,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             self.imageCount += 1
         }, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detailViewSegue"{
+            let vc = segue.destination as! ImageViewController
+            vc.image = selectedImage
+        }
+    }
+    
 }
 
 
@@ -117,7 +125,9 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.row)
+        selectedImage = imageArray[indexPath.row]
         self.performSegue(withIdentifier: "detailViewSegue", sender: Any?.self)
+        
     }
 }
 
