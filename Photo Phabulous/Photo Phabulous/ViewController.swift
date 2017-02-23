@@ -13,7 +13,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     // MARK: Variables
     
-    var imageArray = [UIImage(named: "img1"), UIImage(named: "img2"), UIImage(named: "img3"), UIImage(named: "img4"), UIImage(named: "img5")]
+    //var imageArray = [UIImage(named: "img1"), UIImage(named: "img2"), UIImage(named: "img3"), UIImage(named: "img4"), UIImage(named: "img5")]
+    var imageArray : [UIImage] = []
     
     var imageUrl: [String] = []
     
@@ -28,10 +29,21 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     // MARK: Properties
 
     @IBAction func Refresh(_ sender: UIButton) {
-        imageArray = SharedNetworking.sharedInstance.downloadAllImages(imageUrls: imageUrl)
-        print("doing this first")
-        dump(imageArray)
-        collectionView.reloadData()
+        SharedNetworking.sharedInstance.loadData(completion: { (imgUrl) in
+            if let imgUrl = imgUrl {
+                self.imageUrl = imgUrl
+                dump(self.imageUrl)
+                for url in self.imageUrl {
+                    SharedNetworking.sharedInstance.downloadPhoto(imgUrl: url, completion: { (img) in
+                        if let newImage = img {
+                            self.imageArray.append(newImage)
+                        }
+                    })
+                }
+                self.imageCount = self.imageArray.count
+                self.collectionView.reloadData()
+            }
+        })
         
     }
     @IBAction func camera(_ sender: UIBarButtonItem) {
@@ -51,6 +63,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 print("doing this second")
                 self.imageUrl = imgUrl
                 dump(self.imageUrl)
+                for url in self.imageUrl {
+                    SharedNetworking.sharedInstance.downloadPhoto(imgUrl: url, completion: { (img) in
+                        if let newImage = img {
+                            self.imageArray.append(newImage)
+                        }
+                    })
+                }
+                self.imageCount = self.imageArray.count
+                self.collectionView.reloadData()
             }
         })
         
@@ -96,7 +117,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     func addImage(){
-        imageArray.append(newImage)
+        imageArray.append(newImage!)
         let index = imageArray.index(where : {$0 == newImage})
         let indexPath = IndexPath(item: index!, section: 0)
         self.collectionView.performBatchUpdates({Void in
@@ -111,7 +132,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             vc.image = selectedImage
         }
     }
-    
 }
 
 
@@ -121,7 +141,7 @@ extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource, 
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageArray.count
+        return imageCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
