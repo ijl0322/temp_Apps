@@ -15,6 +15,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     var imageArray = [UIImage(named: "img1"), UIImage(named: "img2"), UIImage(named: "img3"), UIImage(named: "img4"), UIImage(named: "img5")]
     
+    var imageUrl: [String] = []
+    
     var imageCount = 0
     
     var newImage: UIImage?
@@ -25,6 +27,13 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     // MARK: Properties
 
+    @IBAction func Refresh(_ sender: UIButton) {
+        imageArray = SharedNetworking.sharedInstance.downloadAllImages(imageUrls: imageUrl)
+        print("doing this first")
+        dump(imageArray)
+        collectionView.reloadData()
+        
+    }
     @IBAction func camera(_ sender: UIBarButtonItem) {
         launchPhotoPicker()
     }
@@ -32,14 +41,22 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imageCount = imageArray.count
+
         collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionCell")
         collectionView.dataSource = self
         collectionView.delegate = self
         
+        SharedNetworking.sharedInstance.loadData(completion: { (imgUrl) in
+            if let imgUrl = imgUrl {
+                print("doing this second")
+                self.imageUrl = imgUrl
+                dump(self.imageUrl)
+            }
+        })
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
-    
+        
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{

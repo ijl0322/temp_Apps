@@ -12,10 +12,23 @@ import UIKit
 class SharedNetworking {
     static let sharedInstance = SharedNetworking()
     private init() {}
-    
+    var allImages : [UIImage] = []
     var imageUrl : [String]? = []
     let session = URLSession.shared
     let imageCache = NSCache<NSString, UIImage>()
+    
+    func downloadAllImages(imageUrls: [String]) -> [UIImage]{
+        for url in imageUrls {
+            SharedNetworking.sharedInstance.downloadPhoto(imgUrl: url, completion: { (image) in
+                DispatchQueue.main.async {
+                    if let image = image {
+                        self.allImages.append(image)
+                    }
+                }
+            })
+        }
+        return allImages
+    }
     
     func loadData(completion: @escaping (([String]?)->Void)){
         
@@ -75,6 +88,8 @@ class SharedNetworking {
         
         task.resume()
     }
+    
+    
     
     func downloadPhoto(imgUrl: String, completion: @escaping ((UIImage?)->Void)){
         
