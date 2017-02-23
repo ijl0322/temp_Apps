@@ -17,6 +17,7 @@ class SharedNetworking {
     
     var imageUrl : [String]? = []
     let session = URLSession.shared
+    let imageCache = NSCache<NSString, UIImage>()
     
     func loadData(completion: @escaping (([String]?)->Void)){
         
@@ -75,6 +76,34 @@ class SharedNetworking {
         })
         
         task.resume()
+    }
+    
+    func downloadPhoto(imgUrl: String, completion: @escaping ((UIImage?)->Void)){
+        
+        let urlString = "http://stachesandglasses.appspot.com/\(imgUrl)"
+        guard let url = NSURL(string: urlString) else {
+            print("Cannot create NSURL")
+            return
+        }
+        
+        let imgData = self.imageCache.object(forKey: imgUrl as NSString)
+        if imgData != nil {
+            print("img downloaded from cache")
+            completion(imgData)
+        } else {
+            let task = session.dataTask(with: url as URL, completionHandler: { (data, response, error) -> Void in
+                if error != nil {
+                    print("some error occured")
+                    return
+                }
+                let image = UIImage(data: data!)
+                self.imageCache.setObject(image!, forKey: imgUrl as NSString)
+                print("img downloaded from url")
+                completion(image)
+            })
+            
+            task.resume()
+        }
     }
 }
 

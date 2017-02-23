@@ -16,16 +16,20 @@ class ViewController: UIViewController {
     let image = UIImage(named: "img5")
     
     var imageUrl: [String]? = []
+    var imageArray: [UIImage]? = []
 
     @IBOutlet weak var imageView: UIImageView!
     
     @IBAction func button(_ sender: UIButton) {
-        //downloadImages(imgIndex: 1)
+        SharedNetworking.sharedInstance.downloadPhoto(imgUrl: (self.imageUrl?[0])!, completion: { (image) in
+            DispatchQueue.main.async {
+                if let image = image {
+                    self.imageView.image = image
+                }
+            }
+        })
     }
     
-    
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
