@@ -6,9 +6,7 @@
 //  Copyright © 2017 Isabel  Lee. All rights reserved.
 //
 
-import Foundation
 
-import Foundation
 import UIKit
 
 class SharedNetworking {
