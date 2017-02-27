@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var myImage: UIImageView!
+
+    @IBOutlet weak var editingImg: editorImageView!
     
     @IBAction func addPhoto(_ sender: UIButton) {
         let imgPicker = UIImagePickerController()
@@ -21,9 +22,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
     }
     
+    @IBAction func savePhoto(_ sender: UIButton) {
+        UIImageWriteToSavedPhotosAlbum(editingImg.newImage, self, nil, nil)
+    }
+
     @IBAction func addSticker(_ sender: UIButton) {
-        let newSticker = stickers(imageName: "bunny")
-        view.addSubview(newSticker)
+        editingImg.addSticker()
     }
 
     override func viewDidLoad() {
@@ -38,7 +42,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImg = info[UIImagePickerControllerOriginalImage] as! UIImage? {
-            self.myImage.image = pickedImg
+            self.editingImg.image = pickedImg
+            self.editingImg.oldImage = pickedImg
             
         }
         self.dismiss(animated: true, completion: nil)

@@ -18,6 +18,7 @@ class stickers: UIImageView, UIGestureRecognizerDelegate {
         self.isUserInteractionEnabled = true
         self.addGestureRecognizer(panGestureRecognizer)
         
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,8 +33,8 @@ class stickers: UIImageView, UIGestureRecognizerDelegate {
             view.center = CGPoint(x:view.center.x + translation.x,
                                 y:view.center.y + translation.y)
         }
+        
         recognizer.setTranslation(CGPoint.zero, in: recognizer.view)
-
     }
     
     
