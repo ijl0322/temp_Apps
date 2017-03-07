@@ -21,9 +21,7 @@ enum collectionViewItems {
 
 class smallViewController: UIViewController {
     
-    //let stickersArray = [UIImage(named: "26")]
-    var stickers = [MSSticker]()
-    
+    var stickers = [collectionViewItems]()
     weak var delegate: smallViewDelegate?
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -56,7 +54,7 @@ class smallViewController: UIViewController {
         let sticker: MSSticker
         do {
             try sticker = MSSticker(contentsOfFileURL: stickerURL, localizedDescription: localizedDescription)
-            stickers.append(sticker)
+            stickers.append(.sticker(sticker))
         } catch {
             print(error)
             return
@@ -82,7 +80,15 @@ extension smallViewController: UICollectionViewDelegate, UICollectionViewDataSou
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let imageCell = cell as! CollectionViewCell
         //imageCell.stickerImage.image = stickersArray[indexPath.row]
-        imageCell.sticker.sticker = stickers[indexPath.row]
+        let item = stickers[indexPath.row]
+        switch item {
+            case .sticker(let sticker):
+                imageCell.sticker.sticker = sticker
+            default:
+                imageCell.sticker.sticker = nil
+        }
+        
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
