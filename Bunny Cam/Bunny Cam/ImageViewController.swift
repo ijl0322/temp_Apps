@@ -10,27 +10,55 @@ import UIKit
 
 class ImageViewController: UIViewController {
     
+    
+    let lightGrey = UIColor(red: 227/255, green: 228/255, blue: 229/255, alpha: 1)
+    let darkGrey = UIColor(red: 199/255, green: 200/255, blue: 201/255, alpha: 1)
+    
+    @IBOutlet weak var addTextButton: UIButton!
+    @IBOutlet weak var addStickerButton: UIButton!
+    @IBOutlet weak var addTextView: UIView!
+    @IBOutlet weak var addStickerView: UIView!
     var userImg: UIImage?
     
     @IBOutlet weak var editingImg: UIImageView!
     
-    @IBOutlet weak var editingOptionView: UIView!
-    @IBAction func addSticker(_ sender: UIButton) {
-        if self.editingOptionView.center.y >= 793.5 {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.editingOptionView.center.y -= self.editingOptionView.bounds.height
-                print("Inside function\(self.editingOptionView.center.y)")
-            })
-        } else {
-            UIView.animate(withDuration: 0.5, animations: {
-                self.editingOptionView.center.y += self.editingOptionView.bounds.height
-                print("Inside function\(self.editingOptionView.center.y)")
-            })
-        }
 
+    @IBAction func addSticker(_ sender: UIButton) {
+    
+        if self.addTextView.isHidden {
+            UIView.animate(withDuration: 0.5){
+                
+                self.addStickerView.isHidden = false
+            }
+        } else {
+            
+            self.addTextView.isHidden = true
+            self.addStickerView.isHidden = false
+        }
         
+        addTextButton.backgroundColor = lightGrey
+        addStickerButton.backgroundColor = darkGrey
     }
 
+    @IBAction func addText(_ sender: UIButton) {
+        
+        if self.addStickerView.isHidden {
+            UIView.animate(withDuration: 0.5){
+                
+                self.addTextView.isHidden = false
+            }
+        } else {
+            
+            self.addStickerView.isHidden = true
+            self.addTextView.isHidden = false
+        }
+        
+        addTextButton.backgroundColor = darkGrey
+        addStickerButton.backgroundColor = lightGrey
+    
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -38,14 +66,16 @@ class ImageViewController: UIViewController {
         if let userImg = userImg {
             editingImg.image = userImg
         }
+        
+        addTextButton.backgroundColor = lightGrey
+        addStickerButton.backgroundColor = lightGrey
     
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         self.navigationController?.isNavigationBarHidden = false
-        self.editingOptionView.center.y += self.editingOptionView.bounds.height
-        print("\(self.editingOptionView.center.y)")
+
     }
 
     override func didReceiveMemoryWarning() {
