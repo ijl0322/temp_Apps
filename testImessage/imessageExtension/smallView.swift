@@ -21,7 +21,7 @@ enum collectionViewItems {
 
 class smallViewController: UIViewController {
     
-    let stickersArray = [UIImage(named: "26")]
+    //let stickersArray = [UIImage(named: "26")]
     var stickers = [MSSticker]()
     
     weak var delegate: smallViewDelegate?
