@@ -149,6 +149,14 @@
                                 <rect key="frame" x="213" y="1127" width="153" height="170"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ken-h8-K9z">
+                                <rect key="frame" x="5" y="5" width="41" height="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Home"/>
+                                <connections>
+                                    <segue destination="SkE-cp-KFg" kind="unwind" unwindAction="unwindToRVCWithSender:" id="jbP-8b-Mpn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -158,13 +166,16 @@
                             <constraint firstItem="hQU-5v-Xc9" firstAttribute="leading" secondItem="FjH-ce-gRT" secondAttribute="leading" id="8k4-Oh-beg"/>
                             <constraint firstItem="hQU-5v-Xc9" firstAttribute="width" secondItem="FjH-ce-gRT" secondAttribute="width" id="FlN-le-pfw"/>
                             <constraint firstItem="hQU-5v-Xc9" firstAttribute="height" secondItem="FjH-ce-gRT" secondAttribute="height" multiplier="0.4" id="PTk-hF-k3F"/>
+                            <constraint firstItem="Ken-h8-K9z" firstAttribute="leading" secondItem="FjH-ce-gRT" secondAttribute="leading" constant="5" id="VWp-UW-cRk"/>
                             <constraint firstItem="qPs-H5-fXd" firstAttribute="top" secondItem="hQU-5v-Xc9" secondAttribute="bottom" id="d86-S0-ej4"/>
                             <constraint firstAttribute="trailing" secondItem="hQU-5v-Xc9" secondAttribute="trailing" id="iJh-5l-tJh"/>
+                            <constraint firstItem="Ken-h8-K9z" firstAttribute="top" secondItem="FjH-ce-gRT" secondAttribute="top" constant="5" id="nDK-Na-vdo"/>
                             <constraint firstItem="E3i-0h-UqD" firstAttribute="top" secondItem="FjH-ce-gRT" secondAttribute="top" id="oio-WP-4Bg"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXU-Xk-eAU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="SkE-cp-KFg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="24.609375" y="811.71303074670561"/>
         </scene>

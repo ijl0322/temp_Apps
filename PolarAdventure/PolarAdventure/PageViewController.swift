@@ -31,7 +31,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         }
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?{
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?{
         guard let viewControllerIndex = pageArray.index(of: viewController) else {
             return nil
         }
@@ -39,7 +39,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         let previousIndex = viewControllerIndex - 1
         
         guard previousIndex >= 0 else {
-            return pageArray.last
+            return nil
         }
         
         guard pageArray.count > previousIndex else {
@@ -49,7 +49,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         return pageArray[previousIndex]
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController?{
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController?{
         guard let viewControllerIndex = pageArray.index(of: viewController) else {
             return nil
         }
@@ -57,7 +57,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         let nextIndex = viewControllerIndex + 1
         
         guard nextIndex < pageArray.count else {
-            return pageArray.first
+            return nil
         }
         
         guard nextIndex > 0 else {
