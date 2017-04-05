@@ -80,12 +80,18 @@
                                             <outlet property="sticker" destination="TKb-0U-RjT" id="whx-Ko-iBF"/>
                                         </connections>
                                     </collectionViewCell>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="GV3-Qt-yC2">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="createCell" id="GV3-Qt-yC2" customClass="CreateCell" customModule="imessageExtension" customModuleProvider="target">
                                         <rect key="frame" x="249" y="0.0" width="126" height="126"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="126" height="126"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="add" translatesAutoresizingMaskIntoConstraints="NO" id="M9v-Ha-1pL">
+                                                    <rect key="frame" x="0.0" y="0.0" width="126" height="126"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
                                         </view>
                                     </collectionViewCell>
                                 </cells>
@@ -162,4 +168,7 @@
             <point key="canvasLocation" x="1893.5999999999999" y="98.50074962518741"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="add" width="100" height="100"/>
+    </resources>
 </document>

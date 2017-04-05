@@ -12,6 +12,7 @@ import Messages
 
 protocol smallViewDelegate: class {
     func sendImage(img: UIImage) -> Void
+    func createImage() -> Void
 }
 
 enum collectionViewItems {
@@ -36,11 +37,13 @@ class smallViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         loadStickers()
+        stickers.insert(.create, at: 0)
         dump(stickers)
     }
     
     func loadStickers() {
         createSticker(asset: "26", localizedDescription: "Annoyed By the rain")
+        createSticker(asset: "1", localizedDescription: "Laugh")
 
     }
     
@@ -73,26 +76,41 @@ extension smallViewController: UICollectionViewDelegate, UICollectionViewDataSou
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! CollectionViewCell
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let imageCell = cell as! CollectionViewCell
-        //imageCell.stickerImage.image = stickersArray[indexPath.row]
+        
         let item = stickers[indexPath.row]
         switch item {
-            case .sticker(let sticker):
-                imageCell.sticker.sticker = sticker
-            default:
-                imageCell.sticker.sticker = nil
+        case .sticker(let sticker):
+            return dequeueStickerCell(at: indexPath, for: sticker)
+        case .create:
+            return dequeueCreateCell(at: indexPath)
         }
-        
+    }
+    
+    
+    func dequeueCreateCell(at indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "createCell", for: indexPath) as! CreateCell
+        return cell
         
     }
+    
+    func dequeueStickerCell(at indexPath: IndexPath, for sticker: MSSticker) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stickerCell", for: indexPath) as! CollectionViewCell
+        cell.sticker.sticker = sticker
+        return cell
+        
+    }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Sticker #\(indexPath.row) Chosen")
+        let item = stickers[indexPath.row]
+        switch item {
+            case .create:
+                delegate?.createImage()
+            default:
+                return
+        }
+        
         
     }
 

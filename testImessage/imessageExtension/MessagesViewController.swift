@@ -145,4 +145,8 @@ extension MessagesViewController: smallViewDelegate {
         message.layout = layout
         activeConversation?.insert(message, completionHandler: nil)
     }
+    
+    func createImage() {
+        requestPresentationStyle(.expanded)
+    }
 }
