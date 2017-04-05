@@ -126,6 +126,29 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iceBottom" translatesAutoresizingMaskIntoConstraints="NO" id="hQU-5v-Xc9">
                                 <rect key="frame" x="0.0" y="819.5" width="1024" height="546.5"/>
                             </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ice_circle" translatesAutoresizingMaskIntoConstraints="NO" id="oGY-DW-95V">
+                                <rect key="frame" x="126" y="402" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ice_hexagon" translatesAutoresizingMaskIntoConstraints="NO" id="QM8-kd-8Zd">
+                                <rect key="frame" x="401" y="402" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ice_triangle" translatesAutoresizingMaskIntoConstraints="NO" id="lsa-k1-Yz9">
+                                <rect key="frame" x="672" y="402" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Drag the penguin in the middle onto the hexagon shaped ice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0RG-rU-ONy">
+                                <rect key="frame" x="126" y="123" width="786" height="174"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="penguin_walk1" translatesAutoresizingMaskIntoConstraints="NO" id="g04-bX-z5z">
+                                <rect key="frame" x="213" y="1127" width="153" height="170"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -149,5 +172,9 @@
     <resources>
         <image name="gradiantBackground" width="1024" height="1366"/>
         <image name="iceBottom" width="1024" height="699"/>
+        <image name="ice_circle" width="500" height="250"/>
+        <image name="ice_hexagon" width="500" height="250"/>
+        <image name="ice_triangle" width="500" height="250"/>
+        <image name="penguin_walk1" width="324" height="288"/>
     </resources>
 </document>

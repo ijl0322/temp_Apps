@@ -14,6 +14,7 @@
 		0E107D091E947E1A00978D53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E107D071E947E1A00978D53 /* LaunchScreen.storyboard */; };
 		0E107D111E947EBB00978D53 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E107D101E947EBB00978D53 /* PageViewController.swift */; };
 		0E107D151E94980700978D53 /* ParentalGateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E107D141E94980700978D53 /* ParentalGateViewController.swift */; };
+		0EE3EA661E94A4540055A2C2 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE3EA651E94A4540055A2C2 /* Size.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		0E107D0A1E947E1A00978D53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0E107D101E947EBB00978D53 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		0E107D141E94980700978D53 /* ParentalGateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentalGateViewController.swift; sourceTree = "<group>"; };
+		0EE3EA651E94A4540055A2C2 /* Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				0E107D021E947E1A00978D53 /* Main.storyboard */,
 				0E107D101E947EBB00978D53 /* PageViewController.swift */,
 				0E107D141E94980700978D53 /* ParentalGateViewController.swift */,
+				0EE3EA651E94A4540055A2C2 /* Size.swift */,
 				0E107D051E947E1A00978D53 /* Assets.xcassets */,
 				0E107D071E947E1A00978D53 /* LaunchScreen.storyboard */,
 				0E107D0A1E947E1A00978D53 /* Info.plist */,
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0E107D151E94980700978D53 /* ParentalGateViewController.swift in Sources */,
+				0EE3EA661E94A4540055A2C2 /* Size.swift in Sources */,
 				0E107D111E947EBB00978D53 /* PageViewController.swift in Sources */,
 				0E107D011E947E1A00978D53 /* ViewController.swift in Sources */,
 				0E107CFF1E947E1A00978D53 /* AppDelegate.swift in Sources */,
@@ -275,6 +279,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "isabel-Lee.PolarAdventure";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
@@ -287,6 +292,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "isabel-Lee.PolarAdventure";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
@@ -309,6 +315,7 @@
 				0E107D0F1E947E1A00978D53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
