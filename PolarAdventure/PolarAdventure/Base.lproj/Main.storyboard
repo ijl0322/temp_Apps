@@ -81,10 +81,10 @@
             </objects>
             <point key="canvasLocation" x="1512.8" y="344.97751124437787"/>
         </scene>
-        <!--View Controller-->
+        <!--Page One View Controller-->
         <scene sceneID="Imu-1D-zrV">
             <objects>
-                <viewController storyboardIdentifier="page_one" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hzu-hq-Uiw" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="page_one" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Hzu-hq-Uiw" customClass="PageOneViewController" customModule="PolarAdventure" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u9d-TJ-yl2"/>
                         <viewControllerLayoutGuide type="bottom" id="hgu-Hi-RVx"/>
@@ -93,20 +93,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgh-rY-yvd">
-                                <rect key="frame" x="166" y="323" width="8" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iceBergBackground" translatesAutoresizingMaskIntoConstraints="NO" id="wfd-CH-ydS">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iceBerg" translatesAutoresizingMaskIntoConstraints="NO" id="VhA-ok-OG8">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="penguin_walk1" translatesAutoresizingMaskIntoConstraints="NO" id="goa-Hl-Rp8">
+                                <rect key="frame" x="260" y="468" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWN-KL-9bL">
+                                <rect key="frame" x="55" y="498" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Walk"/>
+                                <connections>
+                                    <action selector="walk:" destination="Hzu-hq-Uiw" eventType="touchUpInside" id="yze-da-874"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYr-Wf-Zfu">
+                                <rect key="frame" x="837" y="517" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="walkRight"/>
+                                <connections>
+                                    <action selector="walkRight:" destination="Hzu-hq-Uiw" eventType="touchUpInside" id="FT4-OZ-gsu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VhA-ok-OG8" firstAttribute="top" secondItem="940-SX-EpV" secondAttribute="top" id="0dR-Df-Icq"/>
+                            <constraint firstItem="VhA-ok-OG8" firstAttribute="height" secondItem="940-SX-EpV" secondAttribute="height" id="DE4-l9-0Gg"/>
+                            <constraint firstItem="hgu-Hi-RVx" firstAttribute="top" secondItem="wfd-CH-ydS" secondAttribute="bottom" id="HRR-40-mP9"/>
+                            <constraint firstAttribute="trailing" secondItem="wfd-CH-ydS" secondAttribute="trailing" id="PoS-R6-E2Z"/>
+                            <constraint firstItem="VhA-ok-OG8" firstAttribute="width" secondItem="940-SX-EpV" secondAttribute="width" id="ain-9k-fXv"/>
+                            <constraint firstItem="wfd-CH-ydS" firstAttribute="leading" secondItem="940-SX-EpV" secondAttribute="leading" id="b75-sa-2zq"/>
+                            <constraint firstAttribute="trailing" secondItem="VhA-ok-OG8" secondAttribute="trailing" id="faz-P2-s1c"/>
+                            <constraint firstItem="VhA-ok-OG8" firstAttribute="leading" secondItem="940-SX-EpV" secondAttribute="leading" id="l9L-7V-Hwk"/>
+                            <constraint firstItem="hgu-Hi-RVx" firstAttribute="top" secondItem="VhA-ok-OG8" secondAttribute="bottom" id="n00-WN-jxc"/>
+                            <constraint firstItem="wfd-CH-ydS" firstAttribute="top" secondItem="940-SX-EpV" secondAttribute="top" id="zYo-l5-KKg"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z1R-we-PDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1512.8" y="-335.08245877061472"/>
+            <point key="canvasLocation" x="1512.3046875" y="-335.13909224011712"/>
         </scene>
         <!--Parental Gate View Controller-->
         <scene sceneID="nwr-6M-4qc">
@@ -182,6 +213,8 @@
     </scenes>
     <resources>
         <image name="gradiantBackground" width="1024" height="1366"/>
+        <image name="iceBerg" width="3333" height="3333"/>
+        <image name="iceBergBackground" width="1024" height="1366"/>
         <image name="iceBottom" width="1024" height="699"/>
         <image name="ice_circle" width="500" height="250"/>
         <image name="ice_hexagon" width="500" height="250"/>

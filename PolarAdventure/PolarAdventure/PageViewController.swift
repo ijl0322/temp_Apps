@@ -26,7 +26,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
         self.dataSource = self
         self.delegate = self
         
-        if let firstPage = pageArray.first {
+        if let firstPage = pageArray.last {
             setViewControllers([firstPage], direction: .forward, animated: true, completion: nil)
         }
     }
