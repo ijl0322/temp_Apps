@@ -12,7 +12,7 @@
 
 import UIKit
 
-class PenguinWalk: UIImageView, UIGestureRecognizerDelegate {
+class Penguin: UIImageView, UIGestureRecognizerDelegate {
     
     let Bounds = Size()
     var screenWidth: Double = 0
@@ -24,8 +24,11 @@ class PenguinWalk: UIImageView, UIGestureRecognizerDelegate {
     var iceBergRightBound = 0.0
     let step = 30.0
     
-    var walkRightImg = [UIImage(named: "penguin_walk1")!,UIImage(named: "penguin_walk2")!, UIImage(named: "penguin_walk3")!, UIImage(named: "penguin_walk4")!]
-    var walkLeftImg = [UIImage(named: "penguin_l_walk1")!,UIImage(named: "penguin_l_walk2")!, UIImage(named: "penguin_l_walk3")!, UIImage(named: "penguin_l_walk4")!]
+
+    let walkRightImg = [UIImage(named: "penguin_walk1")!,UIImage(named: "penguin_walk2")!, UIImage(named: "penguin_walk3")!, UIImage(named: "penguin_walk4")!]
+    let walkLeftImg = [UIImage(named: "penguin_l_walk1")!,UIImage(named: "penguin_l_walk2")!, UIImage(named: "penguin_l_walk3")!, UIImage(named: "penguin_l_walk4")!]
+    let dizzyImg = [UIImage(named: "penguin_dizzy1")!, UIImage(named: "penguin_dizzy2")!]
+    
     
     init() {
         screenWidth = Bounds.screenWidth
@@ -43,8 +46,8 @@ class PenguinWalk: UIImageView, UIGestureRecognizerDelegate {
         let swipeRightGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight(_:)))
         swipeRightGestureRecognizer.direction = UISwipeGestureRecognizerDirection.right
         
-        self.addGestureRecognizer(swipeLeftGestureRecognizer)
-        self.addGestureRecognizer(swipeRightGestureRecognizer)
+        //self.addGestureRecognizer(swipeLeftGestureRecognizer)
+        //self.addGestureRecognizer(swipeRightGestureRecognizer)
         
         self.isUserInteractionEnabled = true
         self.contentMode = .scaleAspectFit
@@ -58,11 +61,32 @@ class PenguinWalk: UIImageView, UIGestureRecognizerDelegate {
         self.image = self.walkLeftImg[0]
         self.animationImages = walkLeftImg
         self.startAnimating()
+        
         UIView.animate(withDuration: 0.8, delay: 0, options: .curveEaseOut, animations: {
-            if Double(self.center.x) - self.step > self.iceBergRightBound{
-                self.center.x -= CGFloat(self.step)
+            if Double(self.center.x) + self.step < self.iceBergLeftBound{
+                self.center.x += CGFloat(self.step)
             }
         }, completion: nil)
+    }
+    
+    func dizzySwim() {
+        self.image = self.dizzyImg[1]
+        self.animationImages = self.dizzyImg
+        self.animationRepeatCount = 10
+        self.startAnimating()
+        
+        let animation = CABasicAnimation(keyPath: "transform")
+        animation.fromValue = NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Measurement(value: 30, unit: UnitAngle.degrees).converted(to: .radians).value), 0, 0.0, 1.0))
+        animation.toValue = NSValue(caTransform3D: CATransform3DMakeRotation(CGFloat(Measurement(value: -30, unit: UnitAngle.degrees).converted(to: .radians).value), 0, 0.0, 1.0))
+        animation.duration = 0.2
+        animation.repeatCount = 10
+        animation.autoreverses = true
+        self.layer.add(animation, forKey: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 4.0) {
+            self.layer.removeAllAnimations()
+            self.animationRepeatCount = 2
+        }
     }
     
     func walkRight() {
@@ -75,6 +99,8 @@ class PenguinWalk: UIImageView, UIGestureRecognizerDelegate {
             }
         }, completion: nil)
     }
+    
+    
     
     func swipeLeft(_ recognizer: UISwipeGestureRecognizerDirection){
         walkLeft()

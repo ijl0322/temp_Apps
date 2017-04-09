@@ -16,14 +16,19 @@ class PageOneViewController: UIViewController {
     var storyLineLength = 0.0
     var storyLineXPosition = 0.0
     var story: UILabel?
-    var penguin = PenguinWalk()
+    var penguin = Penguin()
+    var shark = Shark()
     
     @IBAction func walkRight(_ sender: UIButton) {
         penguin.walkRight()
+        shark.startSwim()
     }
     
     @IBAction func walk(_ sender: UIButton) {
-        penguin.walkLeft()
+        //penguin.walkLeft()
+        //penguin.dizzySwim()
+        //shark.hitIceBerg()
+        shark.talk()
     }
 
     override func viewDidLoad() {
@@ -40,6 +45,7 @@ class PageOneViewController: UIViewController {
         story?.numberOfLines = 0
         self.view.addSubview(story!)
         self.view.addSubview(penguin)
+        self.view.addSubview(shark)
         // Do any additional setup after loading the view.
     }
 
