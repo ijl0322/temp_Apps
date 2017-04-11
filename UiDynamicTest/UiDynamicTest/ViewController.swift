@@ -54,11 +54,8 @@ class ViewController: UIViewController {
 //        })
 //        
         
-        SharedAudioPlayer.player.playNote(name: "page2")
-        setTimer()
-        //updateAttributedString(startIndex: 4, length: 3)
-        testLabel.attributedText = attributedString
-        
+        let readToMe = ReadToMe()
+        readToMe.pageOne(storyLabel: testLabel)        
 
     }
     
@@ -78,38 +75,12 @@ class ViewController: UIViewController {
         attributedString = NSMutableAttributedString(string: text,
                                                      attributes: [NSFontAttributeName: UIFont(name: "ChalkboardSE-Regular",
                                                      size: 10.0)!])
-        //updateAttributedString(startIndex: 0, length: 3)
+        testLabel.attributedText = attributedString
         
         
         self.view.addSubview(penguin)
         
     }
     
-    func updateAttributedString(_ timer: Timer) {
-        let range = timer.userInfo as! [Int]
-        
-        attributedString.addAttribute(NSBackgroundColorAttributeName,
-                                      value: UIColor.clear,
-                                      range: NSRange(location: 0, length: attributedString.length))
-        
-        attributedString.addAttribute(NSBackgroundColorAttributeName,
-                                      value: UIColor.yellow,
-                                      range: NSRange(location: range[0], length: range[1]))
-        testLabel.attributedText = attributedString
-    }
-
-    func setTimer() {
-        var startIndex = 0
-        for i in 0..<timer.count{
-            print("\(String(describing: timer[i]["word"]))")
-            let word = timer[i]["word"] as! String
-            let time = timer[i]["start"] as! Double
-            let length = word.characters.count
-            Timer.scheduledTimer(timeInterval: time, target: self, selector: #selector(updateAttributedString(_:)), userInfo: [startIndex, length], repeats: false)
-            startIndex += length + 1
-        }
-    }
-
-
 }
 
