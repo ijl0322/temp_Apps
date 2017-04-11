@@ -15,6 +15,8 @@
 		0E4143931E9D7AF400B1FB9B /* page2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0E4143921E9D7AF400B1FB9B /* page2.mp3 */; };
 		0E4143951E9D7B0B00B1FB9B /* AudioPlayerSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4143941E9D7B0B00B1FB9B /* AudioPlayerSingleton.swift */; };
 		0E4143971E9D84F000B1FB9B /* QuickBrown.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E4143961E9D84F000B1FB9B /* QuickBrown.plist */; };
+		0E4143991E9D8A5300B1FB9B /* test.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E4143981E9D8A5300B1FB9B /* test.plist */; };
+		0E41439B1E9D8FCE00B1FB9B /* ReadToMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E41439A1E9D8FCE00B1FB9B /* ReadToMe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		0E4143921E9D7AF400B1FB9B /* page2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = page2.mp3; sourceTree = "<group>"; };
 		0E4143941E9D7B0B00B1FB9B /* AudioPlayerSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioPlayerSingleton.swift; sourceTree = "<group>"; };
 		0E4143961E9D84F000B1FB9B /* QuickBrown.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = QuickBrown.plist; sourceTree = "<group>"; };
+		0E4143981E9D8A5300B1FB9B /* test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test.plist; sourceTree = "<group>"; };
+		0E41439A1E9D8FCE00B1FB9B /* ReadToMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadToMe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,11 +67,13 @@
 				0E4143801E9D281700B1FB9B /* AppDelegate.swift */,
 				0E4143821E9D281700B1FB9B /* ViewController.swift */,
 				0E4143941E9D7B0B00B1FB9B /* AudioPlayerSingleton.swift */,
+				0E41439A1E9D8FCE00B1FB9B /* ReadToMe.swift */,
 				0E4143841E9D281700B1FB9B /* Main.storyboard */,
 				0E4143871E9D281700B1FB9B /* Assets.xcassets */,
 				0E4143891E9D281700B1FB9B /* LaunchScreen.storyboard */,
 				0E4143961E9D84F000B1FB9B /* QuickBrown.plist */,
 				0E41438C1E9D281700B1FB9B /* Info.plist */,
+				0E4143981E9D8A5300B1FB9B /* test.plist */,
 				0E4143921E9D7AF400B1FB9B /* page2.mp3 */,
 			);
 			path = UiDynamicTest;
@@ -133,6 +139,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E4143991E9D8A5300B1FB9B /* test.plist in Resources */,
 				0E4143971E9D84F000B1FB9B /* QuickBrown.plist in Resources */,
 				0E41438B1E9D281700B1FB9B /* LaunchScreen.storyboard in Resources */,
 				0E4143881E9D281700B1FB9B /* Assets.xcassets in Resources */,
@@ -150,6 +157,7 @@
 			files = (
 				0E4143831E9D281700B1FB9B /* ViewController.swift in Sources */,
 				0E4143811E9D281700B1FB9B /* AppDelegate.swift in Sources */,
+				0E41439B1E9D8FCE00B1FB9B /* ReadToMe.swift in Sources */,
 				0E4143951E9D7B0B00B1FB9B /* AudioPlayerSingleton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

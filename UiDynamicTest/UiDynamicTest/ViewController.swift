@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     var push: UIPushBehavior!
     let penguin_jump = [UIImage(named: "penguin_slide1")!, UIImage(named: "penguin_up")!]
     var attributedString = NSMutableAttributedString()
-    var timer: [[String: Any]] = [["word":"One", "Start": 0.0], ["word":"day,", "Start": 0.9364], ["word":"the", "Start":1.5098], ["word":"penguin", "Start":2.044], ["word":"was", "Start":2.599], ["word":"standing", "Start":2.8858], ["word":"on", "Start":3.4209], ["word":"the", "Start":3.6066], ["word":"edge", "Start":3.7583], ["word":"of", "Start":3.9561], ["word":"the", "Start":4.13417], ["word":"iceBerg", "Start":4.3187]]
+    var timer: [[String: Any]] = []
 
     
     @IBAction func myButton(_ sender: UIButton) {
@@ -66,17 +66,18 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let path = Bundle.main.path(forResource: "QuickBrown", ofType:"plist")
-        let dict = NSArray(contentsOfFile:path!)
+        let path = Bundle.main.path(forResource: "test", ofType:"plist")
+        timer = NSArray(contentsOfFile:path!) as! [[String : Any]]
         
-        dump(dict)
+        
+    
         self.penguin.image = UIImage(named: "penguin_slide1")
-        let text = "One day, the penguin was standing on the edge of the iceberg, watching some little fish"
+        let text = "One day, the penguin was standing on the edge of the iceberg, watching some little fish swim by, when he noticed something different. It was a shark!                 "
         
         
         attributedString = NSMutableAttributedString(string: text,
                                                      attributes: [NSFontAttributeName: UIFont(name: "ChalkboardSE-Regular",
-                                                     size: 30.0)!])
+                                                     size: 10.0)!])
         //updateAttributedString(startIndex: 0, length: 3)
         
         
@@ -102,7 +103,7 @@ class ViewController: UIViewController {
         for i in 0..<timer.count{
             print("\(String(describing: timer[i]["word"]))")
             let word = timer[i]["word"] as! String
-            let time = timer[i]["Start"] as! Double
+            let time = timer[i]["start"] as! Double
             let length = word.characters.count
             Timer.scheduledTimer(timeInterval: time, target: self, selector: #selector(updateAttributedString(_:)), userInfo: [startIndex, length], repeats: false)
             startIndex += length + 1
