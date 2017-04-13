@@ -23,3 +23,16 @@ There are several easter eggs in my app:
 3. On page 7, a beluga will swim out when the user taps the ocean 3 times.
 
 
+## Attributions
+
+http://stackoverflow.com/questions/1429571/how-to-stop-nstimer-event
+https://www.youtube.com/watch?v=oX9o-DnMHsE
+http://stackoverflow.com/questions/24003191/pick-a-random-element-from-an-array
+http://www.appcoda.com/ios-programming-animation-uiimageview/
+http://stackoverflow.com/questions/37819903/ios-layer-animation-explanation
+http://ronnqvi.st/controlling-animation-timing/
+http://liujinlongxa.com/2016/07/10/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3CoreAnimation%E7%9A%84fillMode%E5%92%8CisRemovedOnCompletion/
+http://stackoverflow.com/questions/990221/multiple-lines-of-text-in-uilabel
+https://www.bignerdranch.com/blog/uidynamics-in-swift/
+https://www.raywenderlich.com/76147/uikit-dynamics-tutorial-swift
+https://www.raywenderlich.com/94719/uikit-dynamics-swift-tutorial-tossing-views

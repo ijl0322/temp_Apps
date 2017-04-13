@@ -19,7 +19,7 @@ class SharedAudioPlayer {
     //MARK: Initializer
     private init() {}
     
-    func playNote(name: String) {
+    func play(name: String) {
         let audioFileURL = URL(fileURLWithPath: Bundle.main.path(forResource: name, ofType: "mp3")!)
         
         do {

@@ -54,8 +54,8 @@ class ViewController: UIViewController {
 //        })
 //        
         
-        let readToMe = ReadToMe()
-        readToMe.pageOne(storyLabel: testLabel)        
+        
+        ReadToMe.player.pageSix(storyLabel: testLabel)
 
     }
     
@@ -66,16 +66,11 @@ class ViewController: UIViewController {
         let path = Bundle.main.path(forResource: "test", ofType:"plist")
         timer = NSArray(contentsOfFile:path!) as! [[String : Any]]
         
-        
-    
         self.penguin.image = UIImage(named: "penguin_slide1")
-        let text = "One day, the penguin was standing on the edge of the iceberg, watching some little fish swim by, when he noticed something different. It was a shark!                 "
-        
-        
-        attributedString = NSMutableAttributedString(string: text,
-                                                     attributes: [NSFontAttributeName: UIFont(name: "ChalkboardSE-Regular",
-                                                     size: 10.0)!])
-        testLabel.attributedText = attributedString
+
+        testLabel.attributedText = ReadToMe.player.pageTwoString
+        testLabel.lineBreakMode = .byWordWrapping
+        testLabel.numberOfLines = 0
         
         
         self.view.addSubview(penguin)
